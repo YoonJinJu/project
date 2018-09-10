@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>계산기</title>
+    <style>
+        input {
+            width: 90px;
+            height:50px;
+            font-size : 20px;
+        }
+
+        #result {
+            width:400px;
+            height:50px;
+        }
+    </style>
+    <script>
+        function button_click(value) {
+            var aa = document.getElementById("spend");
+
+            if(value.value == "+" || value.value == "-" || value.value == "*" || value.value == "/")
+            {
+                //value.value = " " + value.value + " ";
+                aa.value += " " + value.value + " ";
+            }else{
+                aa.value += value.value;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form  method = "GET" action = "calculator.php">
+        <table cellspacing="5px">
+            <tr>
+                <input style = "width: 380px" name = "expression" value = " " type="text" id = "spend"/>
+            </tr>
+            <tr>
+                <td><input type="button" value = "  "/></td>
+                <td><input type="reset"     onclick="button_click(this)" value = "C"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "←"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "/"/></td>
+            </tr>
+            <tr>
+                <td><input type="button"    onclick="button_click(this)" value = "7"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "8"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "9"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "*"/></td>
+            </tr>
+            <tr>
+                <td><input type="button"    onclick="button_click(this)" value = "4"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "5"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "6"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "-"/></td>
+            </tr>
+            <tr>
+                <td><input type="button"    onclick="button_click(this)" value = "1"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "2"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "3"/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "+"/></td>
+            </tr>
+            <tr>
+                <td><input type="button" value = "  "/></td>
+                <td><input type="button"    onclick="button_click(this)" value = "0"/></td>
+                <td><input type="button" value = "  "/></td>
+                <td><input type="submit" value = " = "/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

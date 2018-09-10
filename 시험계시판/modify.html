@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자 등록</title>
+</head>
+<body>
+
+    <!--사용자 입력 -->
+    <form action="modify.html" method="GET">
+        <b>수정할 ID를 입력하세요.</b><br>
+        ID : <input type="text" name="id">
+        <input type="submit" value="사용자 정보 조회">
+    </form>
+    <?php
+        $id = $_GET['id'];
+        include "modifyProcess.php";
+    ?>
+</body>
+</html>

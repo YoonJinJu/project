@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random</title>
+    <style>
+        fieldset {
+            width: 240px;
+        }
+        .text {
+            width: 100px;
+            margin-top: 5px;
+        }
+        #sub {
+            width : 50px;
+            margin-top: 5px;
+
+        }
+    </style>
+    <script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".text").focus(function () {
+                $(this).val(" ");
+            });
+        });
+    </script>
+    <script>
+    function three(obj) {
+        // Ajax 연결 객체
+        var req = new XMLHttpRequest();
+        // input text 객체
+        var text = document.getElementById("text");
+
+        // GET방식으로 주소값을 넘겨준다.
+        var url = "http://127.0.0.1/change_string.php?text=" + text.value + "&input=" + obj.value;
+
+        req.open("GET",url,true);
+
+        req.onreadystatechange = function () {
+            if(req.readyState == 4 && req.status == 200) {
+                text.value = null;      // html창을 비운다.
+                text.value += req.responseText;
+            }
+            else {
+
+            };
+        }
+        req.send(); // php에 값을 넘거주는것.
+    }
+</script>
+</head>
+<body>
+    <form method = "GET" action = "randombox.php">
+        <fieldset>
+            <legend><B>[ Random Box ]</B></legend>
+            <tr>
+                <tr>
+                    <td>
+                        <input class = "text" type = "text" value = "가로" name = "width" />
+                        X <input class = "text" type = "text" value = "세로" name = "height" />
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class = "text" type = "text" value = "최소값" name = "start" />
+                        ~
+                        <input class = "text" type = "text" value = "최대값" name = "end" />
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type = "checkbox" value = "true" name = "ok" />
+                        3의 배수
+                    </td>
+                </tr>
+                <tr>
+                    <td><input id = "sub" type = "submit" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>

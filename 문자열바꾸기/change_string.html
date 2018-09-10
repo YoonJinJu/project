@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change_String</title>
+    <style>
+        fieldset {
+            width:300px;
+        }
+       textarea {
+           width: 310px;
+       }
+        input {
+            font-size: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+<body>
+        <fieldset>
+            <legend><B>[ Change String ]</B></legend>
+            <B>Text</B>
+            <input type = "text" name = "text" id = "text"/>
+            <br>
+            <B>Option</B><br>
+            <input type = "button" name = "input" value = "1.찾아바꾸기" onclick="one(this)"/>
+            <br>
+            <input type = "button" name = "input" value = "2.소문자->대문자" onclick="two(this)"/>
+            <br>
+            <input type = "button" name = "input" value = "3.대문자->소문자" onclick="three(this)"/>
+            <br>
+            <input type = "button" name = "input" value = "4.저장" onclick="four(this)"/>
+            <br>
+        </fieldset>
+
+    <script>
+        function one(obj) {
+            // Ajax 연결 객체
+            var req = new XMLHttpRequest();
+            // input text 객체
+            var text = document.getElementById("text");
+
+            var find = prompt("찾을 문자를 입력하세요.");
+            var change = prompt("바꿀 문자를 입력하세요.");
+
+            // GET방식으로 주소값을 넘겨준다.
+            var url = "http://127.0.0.1/change_string.php?text=" + text.value + "&find=" + find + "&change=" + change +
+                    "&input=" + obj.value;
+
+            req.open("GET",url,true);
+
+            req.onreadystatechange = function () {
+                if(req.readyState == 4 && req.status == 200) {
+                    text.value = null;      // html창을 비운다.
+                    text.value += req.responseText;
+                }
+                else {
+
+                };
+            }
+            req.send(); // php에 값을 넘거주는것.
+        }
+    </script>
+
+    <script>
+        function two(obj) {
+        // Ajax 연결 객체
+        var req = new XMLHttpRequest();
+        // input text 객체
+        var text = document.getElementById("text");
+
+        // GET방식으로 주소값을 넘겨준다.
+        var url = "http://127.0.0.1/change_string.php?text=" + text.value + "&input=" + obj.value;
+
+        req.open("GET",url,true);
+
+        req.onreadystatechange = function () {
+            if(req.readyState == 4 && req.status == 200) {
+            text.value = null;      // html창을 비운다.
+            text.value += req.responseText;
+            }
+            else {
+
+            };
+        }
+        req.send(); // php에 값을 넘거주는것.
+        }
+    </script>
+
+        <script>
+            function three(obj) {
+                // Ajax 연결 객체
+                var req = new XMLHttpRequest();
+                // input text 객체
+                var text = document.getElementById("text");
+
+                // GET방식으로 주소값을 넘겨준다.
+                var url = "http://127.0.0.1/change_string.php?text=" + text.value + "&input=" + obj.value;
+
+                req.open("GET",url,true);
+
+                req.onreadystatechange = function () {
+                    if(req.readyState == 4 && req.status == 200) {
+                        text.value = null;      // html창을 비운다.
+                        text.value += req.responseText;
+                    }
+                    else {
+
+                    };
+                }
+                req.send(); // php에 값을 넘거주는것.
+            }
+        </script>
+
+        <script>
+            function four(obj) {
+                // Ajax 연결 객체
+                var req = new XMLHttpRequest();
+                // input text 객체
+                var text = document.getElementById("text");
+
+                var name = prompt("파일명을 입력해주세요.")
+
+                // GET방식으로 주소값을 넘겨준다.
+                var url = "http://127.0.0.1/change_string.php?text=" + text.value + "&name=" + name + "&input=" + obj.value;
+
+                req.open("GET",url,true);
+
+                req.onreadystatechange = function () {
+                    if(req.readyState == 4 && req.status == 200) {
+                        text.value = null;      // html창을 비운다.
+                        text.value += req.responseText;
+                    }
+                    else {
+
+                    };
+                }
+                req.send(); // php에 값을 넘거주는것.
+            }
+        </script>
+
+
+</body>
+</html>

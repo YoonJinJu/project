@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number_input</title>
+    <style>
+        input.text {
+            width: 50px;
+        }
+        fieldset {
+            width : 250px;
+        }
+
+    </style>
+    <script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".text").focus(function () {
+                $(this).val(" ");
+            });
+        });
+    </script>
+</head>
+<body>
+    <form method = "GET" action="Number_output.php">
+        <fieldset>
+            <legend><B> [ Alphabet ] </B></legend>
+            <input type = "radio" name = "check" value = "one" />1번
+                <input class = "text" type = "text" value = "모양" name = "one_Num" class = "click" onfocus="clear()"/>
+                <input class = "text" type = "text" value = "개수" name = "two_Num" class = "click" onfocus="clear()"/>
+                <br>
+
+            <input type = "radio" name = "check" value = "two"/>2번 : 직각 삼각형
+                <br>
+
+            <input type = "radio" name = "check" value = "three"/>3번 : 반대 직각 삼각형
+                <br>
+
+            <input type = "radio" name = "check" value = "four"/>4번 : 나비넥타이 반개
+                <br>
+
+            <input type = "radio" name = "check" value = "five"/>5번 : 나비넥타이
+                <br>
+
+            <input type = "radio" name = "check" value = "six"/>6번 : 빈 나비넥타이
+                <br>
+            <input type = "submit"/>
+        </fieldset>
+    </form>
+</body>
+</html>
